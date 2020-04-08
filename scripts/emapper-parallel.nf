@@ -21,6 +21,7 @@ process runEMapper {
 
   script:
   """
-  python2 emapper.py -d ${params.server_adress} -o ${fasta.simpleName} --output_dir . -i $fasta
+  # python2
+  emapper.py -d ${params.server_adress} -o ${fasta.simpleName} --output_dir . -i $fasta
   """
 }

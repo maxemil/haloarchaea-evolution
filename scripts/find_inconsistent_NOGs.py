@@ -12,6 +12,10 @@ def int_defaultdict():
     return defaultdict(int)
 
 eggnog_dict = defaultdict(int_defaultdict)
-for annot in glob.glob("../annotations_4.5.1_eurNOG/*.annotations"):
+for annot in glob.glob("annotations_4.5.1_eurNOG/*.annotations"):
     df = pd.read_csv(annot, skiprows=4, skipfooter=3, sep='\t', index_col=False, header=None, engine='python')
     df.apply(lambda row: get_cog_nog(row, eggnog_dict) , axis=1)
+
+for k, v in eggnog_dict.items():
+    if len(v) > 1:
+        print(k + "\t" +  ";".join(list(v)))

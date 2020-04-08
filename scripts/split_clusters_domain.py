@@ -71,7 +71,7 @@ def main(base, hmmdir):
                 if dom.split('_')[0] == split_file:
                     subseqs.append(exctract_subseq(seqdict[seq], dom, meta))
         if len(subseqs) >= 0.0 * len(seqdict.values()):
-            with open("COG_split_resolve_eq/{}_{}.fasta".format(base, split_file), 'w') as out:
+            with open("clusters_splitted/{}_{}.fasta".format(base, split_file), 'w') as out:
                 SeqIO.write(subseqs, out, 'fasta')
 
 if __name__ == '__main__':
