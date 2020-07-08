@@ -8,7 +8,7 @@ nextflow scripts/emapper-parallel.nf --fasta "proteomes/*" --outdir annotations_
 python3 scripts/make_EggNOG_clusters.py -f "proteomes/*" -a "annotations_4.5.1_eurNOG/*" -o cluster_eurNOG_4.5.1 -s HiFiX.sif --references
 
 # find and split inconsistent eurNOG (potential gene fusions)
-python3 scripts/find_inconsistent_NOGs.py > inconsistent_eurNOGs.txt # with this you can produce data/inconsistent_eurNOGs.txt
+python3 scripts/find_inconsistent_NOGs.py -a annotations_4.5.1_eurNOG > inconsistent_eurNOGs.txt # with this you can produce data/inconsistent_eurNOGs.txt
 
 
 mkdir cluster_to_split
